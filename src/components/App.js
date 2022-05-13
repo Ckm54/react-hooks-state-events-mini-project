@@ -17,13 +17,17 @@ function App() {
     const newTasks = tasks.filter((task) => task.text !== taskDelete.text)
     setTasks(newTasks)
   }
+
+  function addNewData(data){
+    setTasks([...tasks, data])
+  }
   
   const filteredTasks = tasks.filter((task) => selected === "All" || task.category === selected)
   return (
     <div className="App">
       <h2>My tasks</h2>
       <CategoryFilter categories={CATEGORIES} selected={selected} handleClick={setSelected}/>
-      <NewTaskForm />
+      <NewTaskForm categories={CATEGORIES.filter((category) => category !== "All")} addItem={addNewData}/>
       <TaskList tasks={filteredTasks} handleTaskDelete={onDeleteTask}/>
     </div>
   );
