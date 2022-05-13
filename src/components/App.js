@@ -18,7 +18,7 @@ function App() {
     setTasks(newTasks)
   }
 
-  function addNewData(data){
+  function onTaskFormSubmit(data){
     setTasks([...tasks, data])
   }
   
@@ -27,7 +27,7 @@ function App() {
     <div className="App">
       <h2>My tasks</h2>
       <CategoryFilter categories={CATEGORIES} selected={selected} handleClick={setSelected}/>
-      <NewTaskForm categories={CATEGORIES.filter((category) => category !== "All")} addItem={addNewData}/>
+      <NewTaskForm categories={CATEGORIES.filter((category) => category !== "All")} onTaskFormSubmit={onTaskFormSubmit}/>
       <TaskList tasks={filteredTasks} handleTaskDelete={onDeleteTask}/>
     </div>
   );

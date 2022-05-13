@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function NewTaskForm({categories, addItem}) {
+function NewTaskForm({categories, onTaskFormSubmit}) {
   const [formData, setFormData] = useState({
     text: "",
     category: "code"
@@ -14,7 +14,7 @@ function NewTaskForm({categories, addItem}) {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    addItem(formData)
+    onTaskFormSubmit(formData)
   }
   return (
     <form className="new-task-form" onSubmit={handleSubmit}>

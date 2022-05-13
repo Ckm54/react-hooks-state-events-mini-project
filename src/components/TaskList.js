@@ -4,7 +4,7 @@ import Task from "./Task"
 function TaskList({ tasks, handleTaskDelete }) {
   return (
     <div className="tasks">
-      { tasks.map((task) => <Task key={task.text} task={task} handleDelete={handleTaskDelete}/>)}
+      { tasks.map((task) => <Task key={task.text} text={task.text} category={task.category} handleDelete={() => handleTaskDelete(task)}/>)}
     </div>
   );
 }
